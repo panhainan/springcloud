@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author 十六 (@email panhainan@yeah.net)
@@ -20,9 +21,10 @@ public class DcController {
     private DiscoveryClient discoveryClient;
 
     @GetMapping("/services")
-    public List<String> services() {
+    public List<String> services() throws InterruptedException {
+        Thread.sleep(5000L);
         List<String> services = discoveryClient.getServices();
-        log.info("services:{}", services);
+        log.info("【延迟】services:{}", services);
         return services;
     }
 }
