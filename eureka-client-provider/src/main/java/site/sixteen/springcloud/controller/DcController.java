@@ -22,7 +22,7 @@ public class DcController {
 
     @GetMapping("/services")
     public List<String> services() throws InterruptedException {
-        Thread.sleep(5000L);
+        // Thread.sleep(5000L);
         List<String> services = discoveryClient.getServices();
         log.info("【延迟】services:{}", services);
         return services;
