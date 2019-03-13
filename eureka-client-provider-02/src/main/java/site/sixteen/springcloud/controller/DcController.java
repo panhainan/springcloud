@@ -25,4 +25,9 @@ public class DcController {
         log.info("【十六先生】services-02:{}", services);
         return services;
     }
+
+    @GetMapping("/hello")
+    public String hello() {
+        return "world";
+    }
 }
